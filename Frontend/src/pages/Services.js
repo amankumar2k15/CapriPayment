@@ -1,5 +1,5 @@
 import React from 'react'
-import { EcommerceIntegration, MobilePayment, PaymentTerminals } from "../assets/creditCard/index"
+import { EcommerceIntegration, MobilePayment, PaymentTerminals } from "../assets/index"
 import { FaArrowDown } from "react-icons/fa"
 
 const Services = () => {

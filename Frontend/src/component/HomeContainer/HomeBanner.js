@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import homeBanner from "../../assets/homeBanner.jpg"
 import { AiFillCaretRight } from 'react-icons/ai'
 import { LuMessagesSquare } from 'react-icons/lu'
+import { RxCross2 } from "react-icons/rx"
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const HomeBanner = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -55,11 +57,35 @@ const HomeBanner = () => {
                 </div>
 
                 {isOpen &&
-                    <div className='absolute -top-[300px] -left-[300px]  h-[300px] w-[300px] bg-white rounded-lg'>
-                        <div className='bg-yellow-500 rounded-t-lg  text-xl flex justify-center items-center h-12'>
-                            Message Us
+                    <motion.div
+                        initial={{ y: 200, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className='absolute -top-[300px] -left-[300px] z-50 h-[300px] w-[300px] bg-white rounded-lg'>
+                            <div className='flex justify-between flex-col h-full'>
+                                <div className='bg-yellow-500 rounded-t-lg flex justify-center items-center h-12 '>
+                                    <div className='text-lg w-full flex justify-center items-center h-12'>
+                                        Message Us
+                                    </div>
+                                    <div onClick={() => setIsOpen(false)}>
+                                        <RxCross2 size={20} className=' bg-black text-white rounded-lg w-4 h-4 mr-4' />
+                                    </div>
+                                </div>
+
+                                <div className='text-sm mb-12 border-t-2 border-[#ebe6e6] ' >
+                                    <input placeholder="Enter your message" className="text-body-color focus:border-primary w-full rounded border py-2 px-[14px] text-sm outline-none focus-visible:shadow-none"
+                                        type="text"
+                                        id='message'
+                                    // value={initialData?.message}
+                                    // onChange={handleInput}
+                                    />
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div>
+                    </motion.div>
                 }
             </div>
         </div>

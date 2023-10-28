@@ -10,6 +10,7 @@ const Footer = () => {
     const footerOffer = [
         { text: "Blog", to: "/blog" },
         { text: "Services", to: "/services" },
+        { text: "Appointments", to: "/appointments" },
     ]
 
     return (

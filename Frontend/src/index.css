@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -108,16 +111,51 @@ body {
 @keyframes pulseEffect {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 221, 0, 0.7);
+    box-shadow: 0 0 0 0px rgba(255, 221, 0, 0.7);
   }
 
   70% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(255, 221, 0, 0);
+    box-shadow: 0 0 0 15px rgba(17, 17, 17, 0);
   }
 
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 221, 0, 0);
+    box-shadow: 0 0 0 0px rgba(17, 17, 17, 0);
   }
+}
+
+.pulseEffect2 {
+  animation: pulseEffect2 1s infinite;
+}
+
+@keyframes pulseEffect2 {
+  0% {
+    box-shadow: 0 0 2px 0 #80b4a37b;
+  }
+
+  40% {
+    box-shadow: 0 0 0 6px #8accb68c;
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px #5d9783c3;
+  }
+}
+
+/* Customising the scroll bar  */
+.times-container::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.times-container::-webkit-scrollbar-thumb {
+  background-color: #D1D1D1;
+  border-radius: 6px;
+  background-clip: content-box;
+  border: 1.5px solid transparent;
+}
+
+.times-container::-webkit-scrollbar-thumb:hover {
+  background-color: #A8A8A8;
 }

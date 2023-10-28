@@ -1,15 +1,45 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai"
 import { BsTelephone } from "react-icons/bs"
+import { toast } from 'react-toastify'
 
 const Contact = () => {
-  const { initialData, setInitialData } = useState({
+  const [initialData, setInitialData] = useState({
     name: "",
     email: "",
     phone: "",
-    textarea: ""
+    message: ""
   })
-  
+
+  const handleInput = (event) => {
+    const { value, id } = event.target
+    setInitialData((prevState) => ({ ...prevState, [id]: value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!initialData.name) return toast.error("Name is missing")
+    else if (!initialData.email) return toast.error("Email is missing")
+    else if (!/^[a-z0-9.]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(initialData.email)) return toast.error("Please enter the correct email")
+    else if (!initialData.phone) return toast.error("Phone is missing")
+    else if (!initialData.message) return toast.error("Message is missing")
+    else {
+      axios.post("http://localhost:2100/contact/create-contactUser", initialData).then((res) => {
+        toast.success("Thank you for contacting us, We will get to back shortly!")
+        if (res) {
+          setInitialData({
+            email: "",
+            name: "",
+            phone: "",
+            message: "",
+          })
+        }
+      }).catch((err) => console.log(err.response))
+    }
+  }
+
+
 
   return (
     <>
@@ -69,31 +99,38 @@ const Contact = () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
+
+
                 {/* //----------------------------Contact Form--------------------------------- */}
                 <form>
                   <div className="mb-6">
-                    <input placeholder="Your Name" className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                    <input placeholder="Your Name" className="text-body-color border-black focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       type="text" id='name' value={initialData?.name}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="mb-6">
-                    <input placeholder="Your Email" className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                    <input placeholder="Your Email" className="text-body-color border-black focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       type="email" id='email' value={initialData?.email}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="mb-6">
-                    <input placeholder="Your Phone" className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                    <input placeholder="Your Phone" className="text-body-color border-black focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       type="text" id='phone' value={initialData?.phone}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="mb-6">
-                    <textarea rows={6} placeholder="Your Message" className="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
-                      id='textarea'
-                      value={initialData?.textarea}
+                    <textarea rows={6} placeholder="Your Message" className="text-body-color border-black focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                      id='message'
+                      value={initialData?.message}
+                      onChange={handleInput}
                     />
                   </div>
                   <div>
                     <button type="submit" className="bg-yellow-500 w-full rounded border p-3 text-white transition hover:bg-opacity-90"
+                      onClick={handleSubmit}
                     >
                       Send Message
                     </button>

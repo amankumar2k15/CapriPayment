@@ -7,6 +7,7 @@ import Blog from './pages/Blog'
 import Footer from './pages/Footer'
 import Services from './pages/Services'
 import ErrorPage from './pages/ErrorPage'
+import Appointments from './pages/Appointments'
 
 const App = () => {
   const location = useLocation()
@@ -23,8 +24,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/appointments" element={<Appointments />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

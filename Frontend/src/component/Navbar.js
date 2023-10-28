@@ -9,7 +9,8 @@ const Navbar = () => {
     const menuItems = [
         { to: "/", text: "Home" },
         { to: "/blog", text: "Blog" },
-        { to: "/services", text: "Services" },
+        { to: "/services", text: "Merchant Services " },
+        { to: "/appointments", text: "Appointments " },
     ]
 
     return (
@@ -20,11 +21,11 @@ const Navbar = () => {
                         <img src={logoImg} className='cursor-pointer' alt='logoImg' />
                     </Link>
                 </div>
-                <div className={`absolute top-20 ${hide ? "-left-[64rem] " : "left-0"} z-50 cursor-pointer transition-all duration-1000 ease-in-out  bg-[#f5f5f7] text-[#1f1e1e] lg:text-[#1f1e1e] lg:bg-white flex gap-5 lg:gap-8 p-0 lg:relative shadow-bottom lg:shadow-white  lg:top-0 lg:left-0 w-full lg:w-[100px] lg:p-4 flex-col items-center lg:flex-row`}>
+                <div className={`absolute top-20 ${hide ? "-left-[64rem] " : "left-0"} z-50 cursor-pointer transition-all duration-1000 w-full ease-in-out  bg-[#f5f5f7] text-[#1f1e1e] lg:text-[#1f1e1e] lg:bg-white flex gap-5 lg:gap-8 p-0 lg:relative shadow-bottom lg:shadow-white  lg:top-0 lg:left-0 lg:w-[500px] lg:p-4 flex-col items-center lg:flex-row`}>
                     {menuItems && menuItems.map((items, index) => {
                         return (
-                            <ul key={index} className='py-2 px-2 hover:bg-black hover:text-white lg:hover:bg-white lg:hover:text-[#1f1e1e]  w-full text-center'>
-                                <Link className=' lg:hover:text-yellow-400 text-lg cursor-pointer block w-full border-[#1f1e1e] font-medium shadow-none lg:hover:shadow-bottom transition-all duration-200 ease-in-out'
+                            <ul key={index} className='py-2 px-2 w-full hover:bg-black whitespace-nowrap hover:text-white lg:hover:bg-white lg:hover:text-[#1f1e1e] text-center'>
+                                <Link className='  lg:hover:text-yellow-400 text-md cursor-pointer block w-full border-[#1f1e1e] font-medium shadow-none lg:hover:shadow-bottom transition-all duration-200 ease-in-out'
                                     onClick={() => setHide(!hide)}
                                     to={items.to}
                                 >
