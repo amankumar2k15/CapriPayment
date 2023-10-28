@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { GoogleMeet, MerchantStronghold, Skype } from "../../assets/index"
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { SERVER_URL } from '../../constants';
 
 const ScheduleForm = ({ formattedDateTime, setShowTime, setStartDate }) => {
     const [initialData, setInitialData] = useState({
@@ -63,7 +64,7 @@ const ScheduleForm = ({ formattedDateTime, setShowTime, setStartDate }) => {
         e.preventDefault()
         if (validation().isError) {
             try {
-                const res = await axios.post("http://localhost:2100/user/create-user", initialData)
+                const res = await axios.post(`${SERVER_URL}/user/create-user`, initialData)
                 console.log(res)
                 const data = await res.data
 

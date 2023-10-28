@@ -25,7 +25,7 @@ const Contact = () => {
     else if (!initialData.phone) return toast.error("Phone is missing")
     else if (!initialData.message) return toast.error("Message is missing")
     else {
-      axios.post("http://localhost:2100/contact/create-contactUser", initialData).then((res) => {
+      axios.post(`${SERVER_URL}/contact/create-contactUser`, initialData).then((res) => {
         toast.success("Thank you for contacting us, We will get to back shortly!")
         if (res) {
           setInitialData({
