@@ -1,1 +1,1 @@
-export const SERVER_URL = process.env.BASE_URL
+export const SERVER_URL = process.env.BASE_URL || "http://localhost:2100"
