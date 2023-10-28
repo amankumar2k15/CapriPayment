@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai"
 import { BsTelephone } from "react-icons/bs"
 import { toast } from 'react-toastify'
+import { SERVER_URL } from '../constants'
 
 const Contact = () => {
   const [initialData, setInitialData] = useState({
