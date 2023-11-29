@@ -13,6 +13,7 @@ const Appointments = () => {
     const [appointmentTime, setAppointmentTime] = useState("")
 
     const getEndTime = (timeString) => {
+        // console.log(timeString) // it is the time on which we are clicking
         const [hour, minutes, period] = timeString.split(/[:\s]/);
         let newMinutes = parseInt(minutes) + 30;
         let newHour = hour;
@@ -40,8 +41,6 @@ const Appointments = () => {
         formattedDateTime = `${appointmentTime} - ${endTime}, ${dayName}, ${monthName} ${dayNumber}, ${year}`;
     }
     // =================================> To handle and show the FormatedDateTime <===================================
-
-
 
 
     return (
@@ -86,10 +85,7 @@ const Appointments = () => {
                             <div className="font-medium text-xl px-6 text-center">
                                 Select a Date & Time
                             </div>
-                        )
-
-                        }
-
+                        )}
 
                         <div className='pb-10 w-full '>
                             <CalendarComponent setAppointmentTime={setAppointmentTime} setSelectedDate={setSelectedDate} setShowTime={setShowTime} showTime={showTime} formattedDateTime={formattedDateTime} />

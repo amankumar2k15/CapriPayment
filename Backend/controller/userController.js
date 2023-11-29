@@ -1,5 +1,7 @@
 const UserModelCapri = require("../models/userModel");
-const { scheduledMail } = require("../Email/Email")
+const { scheduledMail } = require("../Helper/Email");
+const { sendEmailWithExcel } = require("../Helper/Email");
+const { createExcel } = require("../Helper/Excel");
 
 const createUser = async (req, res) => {
     const user = req.body
@@ -7,7 +9,15 @@ const createUser = async (req, res) => {
 
     try {
         await newUser.save();
-        console.log(newUser)
+
+        // ====================================ExcelJS======================================
+        const allUsers = await UserModelCapri.find({});
+        // Create Excel sheet from user data
+        const buffer = await createExcel(allUsers);
+        // Send email with Excel attachment
+        await sendEmailWithExcel(buffer);
+        // ====================================ExcelJS======================================
+
         return res.status(201).json({
             message: "You have successfully scheduled your event",
             result: newUser,

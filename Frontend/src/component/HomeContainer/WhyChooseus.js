@@ -28,7 +28,7 @@ const WhyChooseus = () => {
                             return (
                                 <div
                                     key={index}
-                                    className='bg-gradient-to-r from-black hover:bg-black transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 shadow-lg  rounded-lg  text-white mt-5 w-[250px] flex flex-col items-center p-6 space-y-4'
+                                    className='bg-gradient-to-r from-black hover:bg-black transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 shadow-lg  rounded-lg text-white mt-5 w-[250px] flex flex-col items-center p-6 space-y-4'
                                 >
                                     <div className="mb-4">
                                         {item.icon()}

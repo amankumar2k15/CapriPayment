@@ -1,5 +1,5 @@
 const ContactModelCapri = require("../models/contactModel");
-const { sendEmailToContact } = require("../Email/Email")
+const { sendEmailToContact } = require("../Helper/Email")
 
 const createContact = async (req, res) => {
     const userContact = req.body;

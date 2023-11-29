@@ -66,10 +66,8 @@ const CalendarComponent = ({ setAppointmentTime, showTime, setShowTime, setSelec
         setShowTime(true)
     }
 
-
     return (
         <div className="calendar-container mt-10 flex flex-col md:flex-row w-full px-4 bg-white ">
-
             {
                 showTime && showTime ? (
                     <>
@@ -126,14 +124,7 @@ const CalendarComponent = ({ setAppointmentTime, showTime, setShowTime, setSelec
                     </>
             }
 
-
-
-
-
-
-
-
-        </div >
+        </div>
     );
 };
 
