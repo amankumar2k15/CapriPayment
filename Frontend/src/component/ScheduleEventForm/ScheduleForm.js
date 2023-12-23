@@ -65,9 +65,6 @@ const ScheduleForm = ({ formattedDateTime, setShowTime, setStartDate }) => {
         if (validation().isError) {
             try {
                 const res = await axios.post(`${SERVER_URL}/user/create-user`, initialData)
-                console.log(res)
-                const data = await res.data
-
                 toast.success(res.data.message)
                 if (res) {
                     setInitialData({

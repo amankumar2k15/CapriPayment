@@ -20,7 +20,6 @@ const CalendarComponent = ({ setAppointmentTime, showTime, setShowTime, setSelec
             const currentTimeInMinute = today.getHours() * 60 + today.getMinutes();
             const filteredTimes = allTimes.filter(time => {
                 const [hour, minute, period] = time.split(/[:\s]/);
-                // console.log(hour, "--", minute, "---", period)
                 const hourIn24Format = period === "PM" && hour !== "12" ? parseInt(hour) + 12 : parseInt(hour);
                 return (hourIn24Format * 60 + parseInt(minute)) > currentTimeInMinute;
             });
@@ -28,9 +27,9 @@ const CalendarComponent = ({ setAppointmentTime, showTime, setShowTime, setSelec
         } else {
             setAvailableTimes(allTimes);
         }
-    }, [startDate]);
+        // eslint-disable-next-line
+    }, [startDate, allTimes, today]);
     // ----------------------------------For Available Times or not-----------------------------------------------
-
 
     // A helper function that checks if the given day is Sunday or Monday
     const isWeekend = (date) => {

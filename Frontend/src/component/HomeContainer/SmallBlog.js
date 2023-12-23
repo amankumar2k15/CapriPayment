@@ -27,11 +27,11 @@ const SmallBlog = () => {
                             <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                                 <h2 className="text-gray-900 text-lg title-font font-medium mb-2">{item.heading}</h2>
                                 <p className="leading-relaxed text-base">{item.para}</p>
-                                <a className="mt-3 text-yellow-400   inline-flex items-center">Read More
+                                <button className="mt-3 text-yellow-400   inline-flex items-center">Read More
                                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 animate-ping  ml-2" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     )

@@ -22,7 +22,7 @@ const HomeBanner = () => {
         }, 4500)
 
         return () => clearInterval(interval)
-    }, [])
+    }, [slides.length])
 
 
     return (

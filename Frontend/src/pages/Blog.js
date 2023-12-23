@@ -23,20 +23,20 @@ const Blog = () => {
                                     Our Blogs
                                 </h2>
                                 <p className="text-md sm:text-lg px-4 sm:px-0 md:text-xl font-medium sm:text-center  text-gray-600 leading-relaxed">
-                                Unraveling the magic behind swift and secure transactions, Capri Payments redefines modern payment solutions.
+                                    Unraveling the magic behind swift and secure transactions, Capri Payments redefines modern payment solutions.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-row w-full flex-wrap gap-10 justify-center px-4 sm:px-0">
-                            {boxContainer && boxContainer.map((item, index) => {
-                                return (
+                        {boxContainer && boxContainer.map((item, index) => {
+                            return (
                                 <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-darkblack transition-all duration-300 ease-in-out hover:scale-105 ">
-                                    <div  className="w-full mb-10 ">
+                                    <div className="w-full mb-10 ">
                                         <div className="overflow-hidden rounded ">
                                             <img
                                                 src={item.src}
-                                                alt={`image${index}`}
+                                                alt={`capri${index}`}
                                                 className="w-full"
                                             />
                                         </div>
@@ -50,17 +50,17 @@ const Blog = () => {
                                             <p className="text-base text-body-color dark:text-dark-6">
                                                 {item.para}
                                             </p>
-                                            <a className="mt-3  text-yellow-400  inline-flex items-center">Read More
+                                            <button className="mt-3  text-yellow-400  inline-flex items-center">Read More
                                                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 animate-ping h-4 ml-2" viewBox="0 0 24 24">
                                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                                 </svg>
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                )
-                            })}
-                    </div> 
+                            )
+                        })}
+                    </div>
 
                 </div>
             </section>
