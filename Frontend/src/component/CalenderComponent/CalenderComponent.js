@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerStyles.css';
@@ -12,8 +12,8 @@ const CalendarComponent = ({ setAppointmentTime, showTime, setShowTime, setSelec
 
     // ----------------------------------For Available Times or not-----------------------------------------------
     const [availableTimes, setAvailableTimes] = useState([]);
-    const allTimes = ["12:00 AM", "12:15 AM", "12:30 AM", "12:45 AM", "01:00 AM", "01:15 AM", "01:30 AM", "02:45 AM", "03:00 AM", "03:15 AM", "03:30 AM", "03:45 AM", "04:00 AM", "04:15 AM", "04:30 AM", "08:00 PM", "09:00 PM", "09:15 PM", "09:30 PM", "10:00 PM", "10:15 PM", "10:30 PM", "10:45 PM", "11:00 PM", "11:15 PM", "11:30 PM",];
-    const today = new Date();
+    const allTimes = useMemo(()=>["12:00 AM", "12:15 AM", "12:30 AM", "12:45 AM", "01:00 AM", "01:15 AM", "01:30 AM", "02:45 AM", "03:00 AM", "03:15 AM", "03:30 AM", "03:45 AM", "04:00 AM", "04:15 AM", "04:30 AM", "08:00 PM", "09:00 PM", "09:15 PM", "09:30 PM", "10:00 PM", "10:15 PM", "10:30 PM", "10:45 PM", "11:00 PM", "11:15 PM", "11:30 PM"],[])
+    const today = useMemo(()=>new Date(),[]);
 
     useEffect(() => {
         if (startDate && startDate.toDateString() === today.toDateString()) {
