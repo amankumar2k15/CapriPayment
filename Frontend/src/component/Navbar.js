@@ -16,10 +16,14 @@ const Navbar = () => {
     return (
         <section className='w-full border-gray-100 border-b-2 '>
             <nav className='h-20 px-4 lg:px-32 mx-auto flex flex-row justify-between items-center'>
-                <div className='w-20'>
-                    <Link to="/">
+                <div className=' flex flex-row w-[105px] items-center justify-center'>
+                    <Link to="/" className=''>
                         <img src={logoImg} className='cursor-pointer' alt='logoImg' />
                     </Link>
+
+                    <div className='text-md mt-[16px] text-black font-bold leading-[18.05px]' >
+                        Capri <br /><span>Payment</span>
+                    </div>
                 </div>
                 <div className={`absolute top-20 ${hide ? "-left-[64rem] " : "left-0"} z-50 cursor-pointer transition-all duration-1000 w-full ease-in-out  bg-[#f5f5f7] text-[#1f1e1e] lg:text-[#1f1e1e] lg:bg-white flex gap-5 lg:gap-8 p-0 lg:relative shadow-bottom lg:shadow-white  lg:top-0 lg:left-0 lg:w-[500px] lg:p-4 flex-col items-center lg:flex-row`}>
                     {menuItems && menuItems.map((items, index) => {

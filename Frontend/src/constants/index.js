@@ -1,1 +1,1 @@
-export const SERVER_URL = process.env.BASE_URL || "http://localhost:2100"
+export const SERVER_URL = process.env.REACT_APP_BASE_URL || "http://localhost:2100"

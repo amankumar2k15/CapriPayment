@@ -53,7 +53,7 @@ const Appointments = () => {
                                 <BsArrowLeftCircle size={34} className="hover:text-gray-500" />
                             </Link>
                             <div className='my-4'>
-                                <img src={LogoImg} alt='Capri Logo' className="mx-auto" />
+                                <img src={LogoImg} alt='Capri Logo' className="mx-auto h-[220px]" />
                                 <h2 className='text-md text-gray-500 mt-2 text-center'>Capri Payments</h2>
                                 <p className='font-semibold text-2xl text-center'>Merchant Services</p>
                             </div>
